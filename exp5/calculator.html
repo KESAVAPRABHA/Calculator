@@ -1,0 +1,99 @@
+35.<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculator</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-image: url('https://i.pinimg.com/736x/44/ba/da/44badafb3d74da1eb0666da0d926fd65.jpg'); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .calculatorBox {
+    padding: 40px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  h2 {
+    margin-bottom: 20px;
+  }
+  #calculatorForm {
+    text-align: center;
+    margin-top: 20px;
+  }
+  label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  input[type="number"] {
+    width: 100px;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  .buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  button {
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+    margin: 5px;
+    border: none;
+    border-radius: 50%;
+    background-color: #1e35ff; /* Dark blue */
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    background-image: linear-gradient(45deg, #ff1edd, #662eff);
+  }
+  button:hover {
+    background-image: linear-gradient(45deg, #424809, #662eff);
+  }
+</style>
+<script>
+    function set(operation) {
+      document.getElementById('calculatorForm').action = 'http://localhost:3000/' + operation;
+    }
+
+</script>
+</head>
+<body>
+  <div class="calculatorBox">
+    <h2>Calculator</h2>
+    <form id="calculatorForm" action="http://localhost:3000" method="GET">
+     
+        <label for="num1">Enter number 1</label>
+        <input type="number" id="num1" name="num1" required>
+     
+        <label for="num2">Enter number 2</label>
+        <input type="number" id="num2" name="num2" required><br>
+    
+        <button type="submit" onclick="set('add')">+</button>
+      <button type="submit" onclick="set('sub')">-</button>
+      <button type="submit" onclick="set('mul')">*</button><br>
+      <button type="submit" onclick="set('divide')">/</button>
+      <button type="submit" onclick="set('power')">^</button>
+      <button type="submit" onclick="set('modulo')">%</button><br>
+    </form>
+  </div>
+</body>
+</html>
